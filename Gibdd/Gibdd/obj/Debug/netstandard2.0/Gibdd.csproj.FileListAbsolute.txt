@@ -1,0 +1,16 @@
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\bin\Debug\netstandard2.0\Gibdd.deps.json
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\bin\Debug\netstandard2.0\Gibdd.dll
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\bin\Debug\netstandard2.0\ref\Gibdd.dll
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\bin\Debug\netstandard2.0\Gibdd.pdb
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.csprojAssemblyReference.cache
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.AssemblyInfoInputs.cache
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.AssemblyInfo.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.dll
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\ref\Gibdd.dll
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.pdb
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\Gibdd.csproj.CoreCompileInputs.cache
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\ScreenProfile\AddProfile.xaml.g.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\ScreenProfile\ChooseProfile.xaml.g.cs

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Gibdd"
+             mc:Ignorable="d"
+             x:Class="Gibdd.AddProfile"             
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>        
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>                                       
+                </Grid.RowDefinitions>
+            </Grid>
+            <Label x:Name="TypeProfile"
+                Grid.Row="0" 
+                Text="{Binding SelectedProfile.TypeProfile}" 
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            <Switch                 
+                x:Name="SwitchTypeProfile"
+                Toggled="Switch_Toggled"
+                Grid.Row="1" 
+                IsToggled="{Binding SelectedProfile.IsCompany}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"               
+                />
+            <TableView Intent="Data" RowHeight="80">
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection >
+                            <EntryCell                                
+                                x:Name="EntryName"                                                               
+                                Text="{Binding Name}"
+                                Placeholder="Название профиля"
+                                />
+                            <EntryCell
+                                x:Name="EntrySecondName"
+                                Text="{Binding SecondName}"
+                                Placeholder="Фамилия"
+                                />
+                            <EntryCell
+                                x:Name="EntryFirstName"
+                                Text="{Binding FirstName}"
+                                Placeholder="Имя"                                 
+                                />
+                            <EntryCell
+                                x:Name="EntryMidleName"
+                                Text="{Binding SelectedProfile.MidleName}"
+                                Placeholder="Отчество"
+                                />
+                            <EntryCell 
+                                x:Name="EntryEmail"
+                                Text="{Binding Email}"
+                                Placeholder="Электронная почта"                 
+                                />
+                            <EntryCell 
+                                x:Name="EntryMobilePhone"
+                                Text="{Binding SelectedProfile.MobilePhone}"
+                                Placeholder="Мобильный телефон"                 
+                                />
+                            <EntryCell 
+                                x:Name="EntryRegion"
+                                Text="{Binding Region}"
+                                Placeholder="Регион адресации"                 
+                                />
+                            <EntryCell 
+                                x:Name="EntrySubdivision"
+                                Text="{Binding Subdivision}"
+                                Placeholder="Подразделение адресации"                 
+                                />
+                            <EntryCell 
+                                x:Name="EntryRegionOfIncedent"
+                                Text="{Binding SelectedProfile.RegionOfIncedent}"
+                                Placeholder="Регион происшествия"                 
+                                />
+
+                            <EntryCell
+                                x:Name="EntryNameCompany"
+                                Text="{Binding SelectedProfile.NameCompany}"
+                                Placeholder="Наименование организации"                                
+                                IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                />
+                            <EntryCell
+                                x:Name="EntryAddInfomation"
+                                Text="{Binding SelectedProfile.AddInfomation}"
+                                Placeholder="Дополнительная информация"                                
+                                IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                />
+                            <EntryCell
+                                x:Name="EntryOutgoingNumber"
+                                Text="{Binding SelectedProfile.OutgoingNumber}"
+                                Placeholder="Исходящий номер"  
+                                IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                />
+                            <ViewCell>
+                                <StackLayout Padding="12">
+                                    <Label 
+                                        x:Name="LabelDate"
+                                        Grid.Row="0" 
+                                        Text="Дата регистрации документа в организации"
+                                        FontSize="15"
+                                        />
+                                    <DatePicker 
+                                        Grid.Row="1"
+                                        x:Name="EntryDateRegistration"                                        
+                                        MinimumDate="01/01/2014"
+                                        MaximumDate="12/31/2024"
+                                        Date="{Binding SelectedProfile.DateRegistration}" 
+                                        IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                        />
+                                </StackLayout>                                                            
+                            </ViewCell>
+                            <EntryCell 
+                                x:Name="EntryNumberLetter"
+                                Text="{Binding SelectedProfile.NumberLetter}"
+                                Placeholder="Номер заказного письма"  
+                                IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                />                            
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+            <Button x:Name="SaveProfileButton" 
+                    Text="Сохранить профиль" 
+                    Clicked="SaveProfile_Clicked"
+                    Command="{Binding SaveProfile_Command}"   
+                    
+                    >
+                <!--                
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference EntryName},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                            <BindingCondition Binding="{Binding Source={x:Reference EntryFirstName},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                            <BindingCondition Binding="{Binding Source={x:Reference EntrySecondName},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                            <BindingCondition Binding="{Binding Source={x:Reference EntryEmail},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                            <BindingCondition Binding="{Binding Source={x:Reference EntryRegion},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                            <BindingCondition Binding="{Binding Source={x:Reference EntrySubdivision},
+                                              Path=Text.Length,
+                                              Converter={StaticResource dataHasBeenEntered}}"
+                                              Value="true"
+                                              />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="True" />                        
+                    </MultiTrigger>
+                </Button.Triggers>
+                -->
+                
+            </Button>              
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
