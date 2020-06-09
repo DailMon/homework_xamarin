@@ -14,3 +14,5 @@ D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandar
 D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\ScreenProfile\AddProfile.xaml.g.cs
 D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\ScreenProfile\ChooseProfile.xaml.g.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\EditTextAppeal.xaml.g.cs
+D:\Programming\XamarinProjects\homework_xamarin\Gibdd\Gibdd\obj\Debug\netstandard2.0\AddPhoto.xaml.g.cs

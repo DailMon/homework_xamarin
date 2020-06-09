@@ -132,49 +132,7 @@
             <Button x:Name="SaveProfileButton" 
                     Text="Сохранить профиль" 
                     Clicked="SaveProfile_Clicked"
-                    Command="{Binding SaveProfile_Command}"   
-                    
-                    >
-                <!--                
-                <Button.Triggers>
-                    <MultiTrigger TargetType="Button">
-                        <MultiTrigger.Conditions>
-                            <BindingCondition Binding="{Binding Source={x:Reference EntryName},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                            <BindingCondition Binding="{Binding Source={x:Reference EntryFirstName},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                            <BindingCondition Binding="{Binding Source={x:Reference EntrySecondName},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                            <BindingCondition Binding="{Binding Source={x:Reference EntryEmail},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                            <BindingCondition Binding="{Binding Source={x:Reference EntryRegion},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                            <BindingCondition Binding="{Binding Source={x:Reference EntrySubdivision},
-                                              Path=Text.Length,
-                                              Converter={StaticResource dataHasBeenEntered}}"
-                                              Value="true"
-                                              />
-                        </MultiTrigger.Conditions>
-                        <Setter Property="IsEnabled" Value="True" />                        
-                    </MultiTrigger>
-                </Button.Triggers>
-                -->
-                
+                    Command="{Binding SaveProfile_Command}" >
             </Button>              
         </StackLayout>
     </ContentPage.Content>

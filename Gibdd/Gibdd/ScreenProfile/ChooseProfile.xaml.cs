@@ -67,7 +67,7 @@ namespace Gibdd
             Profile profile = ProfilesListView.SelectedItem as Profile;
             if (profile != null)
             {
-                await App.Database.DeleteNoteAsync(profile);
+                await App.Database.DeleteProfileAsync(profile);
                 ProfilesListView.ItemsSource = await App.Database.GetAllProfilesAsync();
                 ProfilesListView.SelectedItem = null;
             }

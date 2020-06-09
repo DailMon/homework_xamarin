@@ -27,5 +27,13 @@ namespace Gibdd
                 BindingContext = this.BindingContext
             });
         }
+
+        private async void FormAppeal_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditTextAppeal
+            {
+                BindingContext = this.BindingContext
+            });
+        }
     }
 }

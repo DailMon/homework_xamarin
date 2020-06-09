@@ -14,6 +14,18 @@
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Button Text="Выберите профиль" Clicked="ChooseProfile_Clicked" />
+        <Button 
+            Text="Сформировать обращение" 
+            Clicked="FormAppeal_Clicked"
+            IsEnabled="False">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button" 
+                             Binding="{Binding IsChoosed}"
+                             Value="True">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
     </StackLayout>
 
 </ContentPage>
