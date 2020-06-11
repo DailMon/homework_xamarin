@@ -1,9 +1,17 @@
-﻿using System;
+﻿
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using SkiaSharp;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+
 
 namespace Gibdd.ScreenProfile
 {
@@ -158,7 +166,6 @@ namespace Gibdd.ScreenProfile
                         region = "";
                         subdivision = "";
                     }
-
                 }
             }
         }
@@ -172,14 +179,16 @@ namespace Gibdd.ScreenProfile
 
         private IProfilesModel profilesModel;
         public ICommand ProfileChoosed_Command { get; set; }
-        public ICommand SaveProfile_Command { get; set; }
-
+        public ICommand SaveProfile_Command { get; set; }        
+        public ICommand TakePhoto_Command { get; set; }
+        public ICommand PickPhoto_Command { get; set; }
 
         public ProfilesViewModel()
         {
             ProfileChoosed_Command = new Command(OnChooseProfileClick);
             SaveProfile_Command = new Command(OnSaveProfileClick, () => CanSave);
-
+            TakePhoto_Command = new Command(OnTakePhoto);
+            PickPhoto_Command = new Command(OnPickPhoto);
             profilesModel = new ProfilesModel();
         }
 
@@ -192,6 +201,7 @@ namespace Gibdd.ScreenProfile
                 NotyfyProrertyChanged(nameof(NameProfile));
             }
         }
+
         private async void OnSaveProfileClick()
         {
             SelectedProfile.Name = Name;
@@ -201,6 +211,7 @@ namespace Gibdd.ScreenProfile
             SelectedProfile.Region = Region;
             SelectedProfile.Subdivision = Subdivision;
             await App.Database.SaveProfileAsync(SelectedProfile);
+            NotyfyProrertyChanged(nameof(SelectedProfile));
         }
 
         string currentTextAppeal = "";
@@ -248,5 +259,91 @@ namespace Gibdd.ScreenProfile
                 NotyfyProrertyChanged(nameof(IsEditText));
             }
         }
+
+        ObservableCollection<MyImage> imageItems = new ObservableCollection<MyImage>();
+        public ObservableCollection<MyImage> ImageItems
+        {
+            get { return imageItems; }
+            set {
+                NotyfyProrertyChanged(nameof(ImageItems));
+            }           
+        }
+
+        private async void OnTakePhoto()
+        {
+            await CrossMedia.Current.Initialize();
+            Image img = new Image();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            {
+                SaveToAlbum = true,
+                Directory = "Sample",
+                Name = $"{DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss")}.jpg",
+                PhotoSize = PhotoSize.Custom,
+                CustomPhotoSize = 80,
+                CompressionQuality = 92
+            });
+
+            if (file == null)
+                return;
+            
+            img.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                return stream;
+            });
+            var curImage = new MyImage();
+            curImage.Photo = img;
+            curImage.PhotoSource = img.Source;           
+            if (img.Source is FileImageSource source)
+            {
+                curImage.NamePhoto = (string)source.File;
+            }
+            else
+            {
+                curImage.NamePhoto = "название отсутствует";
+            }
+            imageItems.Add(curImage);            
+            NotyfyProrertyChanged(nameof(ImageItems));            
+        }
+
+        private async void OnPickPhoto()
+        {
+            var curImage = new MyImage();
+            if (CrossMedia.Current.IsPickPhotoSupported)
+            {
+                MediaFile photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                {
+                    PhotoSize = PhotoSize.Custom,
+                    CustomPhotoSize = 80,
+                    CompressionQuality = 92
+                });
+
+                curImage.PhotoSource = ImageSource.FromFile(photo.Path);                             
+
+                if (photo != null)
+                {
+                    if (curImage.PhotoSource is FileImageSource source)
+                    {
+                        curImage.NamePhoto = (string)source.File;
+
+                    }
+                    else
+                    {
+                        curImage.NamePhoto = "название отсутствует";
+                    }
+                    imageItems.Add(curImage);                    
+                    NotyfyProrertyChanged(nameof(ImageItems));
+                }
+            }
+        }
+
+        public MyImage SelectedPhoto { get; set; }
+
     }
 }

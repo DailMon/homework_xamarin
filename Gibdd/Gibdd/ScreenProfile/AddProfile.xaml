@@ -11,8 +11,8 @@
             <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Content>        
-        <StackLayout>
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>

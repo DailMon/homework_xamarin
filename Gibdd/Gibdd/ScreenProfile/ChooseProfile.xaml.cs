@@ -24,6 +24,7 @@ namespace Gibdd
             base.OnAppearing();
 
             ProfilesListView.ItemsSource = await App.Database.GetAllProfilesAsync();
+            ProfilesListView.SelectedItem = null;
         }       
 
         private async void ChooseProfile_Clicked(object sender, EventArgs e)

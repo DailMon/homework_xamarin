@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Gibdd.MainPage">
 
-    <StackLayout>
+    <StackLayout Spacing="10" Padding="10">
         <!-- Place new controls here -->     
         
         <Label
