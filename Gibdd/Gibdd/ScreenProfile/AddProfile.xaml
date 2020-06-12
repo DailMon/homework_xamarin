@@ -2,15 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Gibdd"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Gibdd.AddProfile"             
-             >
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
+             >    
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="10">
             <Grid>
@@ -33,7 +28,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"               
                 />
-            <TableView Intent="Data" RowHeight="80">
+            <TableView Intent="Data" HasUnevenRows="true">
                 <TableView.Root>
                     <TableRoot>
                         <TableSection >
@@ -60,12 +55,14 @@
                             <EntryCell 
                                 x:Name="EntryEmail"
                                 Text="{Binding Email}"
-                                Placeholder="Электронная почта"                 
+                                Placeholder="Электронная почта"
+                                Keyboard="Email"
                                 />
                             <EntryCell 
                                 x:Name="EntryMobilePhone"
                                 Text="{Binding SelectedProfile.MobilePhone}"
-                                Placeholder="Мобильный телефон"                 
+                                Placeholder="Мобильный телефон"
+                                Keyboard="Telephone"
                                 />
                             <EntryCell 
                                 x:Name="EntryRegion"
@@ -100,6 +97,7 @@
                                 Text="{Binding SelectedProfile.OutgoingNumber}"
                                 Placeholder="Исходящий номер"  
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                Keyboard="Numeric"
                                 />
                             <ViewCell>
                                 <StackLayout Padding="12">
@@ -124,6 +122,7 @@
                                 Text="{Binding SelectedProfile.NumberLetter}"
                                 Placeholder="Номер заказного письма"  
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                Keyboard="Numeric"
                                 />                            
                         </TableSection>
                     </TableRoot>

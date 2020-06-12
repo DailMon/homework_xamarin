@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
@@ -19,11 +20,13 @@ namespace Gibdd
 
         public Task<List<Profile>> GetAllProfilesAsync()
         {
+            _database.Table<TextAppeal>().OrderBy(item => item.ID);
             return _database.Table<Profile>().ToListAsync();
         }
 
         public Task<List<TextAppeal>> GetAllTextAppealsAsync()
         {
+            _database.Table<TextAppeal>().OrderBy(item => item.ID);
             return _database.Table<TextAppeal>().ToListAsync();
         }
 

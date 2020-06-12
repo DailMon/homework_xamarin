@@ -1,4 +1,4 @@
-﻿using Gibdd.ScreenProfile;
+﻿using Gibdd;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -16,13 +16,13 @@ namespace Gibdd
 
         public ChooseProfile()
         {
-            InitializeComponent();            
+            InitializeComponent();           
             
         }
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
+            base.OnAppearing(); 
+            
             ProfilesListView.ItemsSource = await App.Database.GetAllProfilesAsync();
             ProfilesListView.SelectedItem = null;
         }       
@@ -35,8 +35,7 @@ namespace Gibdd
             Profile profile = ProfilesListView.SelectedItem as Profile;
             if (profile != null)
             {
-                await Navigation.PopAsync();
-                ProfilesListView.SelectedItem = null;
+                await Navigation.PopModalAsync();                
             }            
             AddProfile_Button.IsEnabled = true;
             RemoveProfile_Button.IsEnabled = true;
@@ -50,7 +49,7 @@ namespace Gibdd
             RemoveProfile_Button.IsEnabled = false;
             EditProfile_Button.IsEnabled = false;
             ProfilesListView.SelectedItem = new Profile();
-            await Navigation.PushAsync(new AddProfile
+            await Navigation.PushModalAsync(new AddProfile
             {
                 BindingContext = this.BindingContext
             });
@@ -85,7 +84,7 @@ namespace Gibdd
             Profile profile = ProfilesListView.SelectedItem as Profile;
             if (profile != null)
             {
-                await Navigation.PushAsync(new AddProfile
+                await Navigation.PushModalAsync(new AddProfile
                 {
                     BindingContext = this.BindingContext
                 });                

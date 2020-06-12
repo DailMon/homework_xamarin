@@ -9,8 +9,7 @@ namespace Gibdd
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string TypeProfile { get { return "Гражданин"; } set { } }
+        public string Name { get; set; }        
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string MidleName { get; set; }
@@ -27,6 +26,7 @@ namespace Gibdd
         public string OutgoingNumber { get; set; }
         public DateTime DateRegistration { get { return DateTime.Now; } set { } }
         public string NumberLetter { get; set; }
+        public string TypeProfile { get; set; } = "Гражданин";
 
         public override string ToString()
         {

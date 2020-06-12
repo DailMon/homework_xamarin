@@ -10,16 +10,16 @@
             <ListView x:Name="ImageListView"
                     ItemsSource="{Binding ImageItems}"
                     CachingStrategy="RecycleElement"
-                    SelectedItem="{Binding SelectedPhoto}"  
-                    ItemTapped="Image_Tapped"
-                    HasUnevenRows="true">
+                    SelectedItem="{Binding SelectedPhoto}"                      
+                    HasUnevenRows="true"
+                    
+                    >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout Spacing="5">
-                                    <Image Source="{Binding PhotoSource}" WidthRequest="150" HeightRequest="150"/>                                   
-                                    <Label Text=" " />
+                                <StackLayout Spacing="5" Padding="5">
+                                    <Image Source="{Binding PhotoSource}" WidthRequest="150" HeightRequest="150"/>                                 
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>                                                
@@ -28,6 +28,16 @@
             </ListView>
             <Button x:Name="PickPhotoButton" Text="Выбрать из галереи" Command="{Binding PickPhoto_Command}" />
             <Button x:Name="TakePhotoButton" Text="Сделать фото" Command="{Binding TakePhoto_Command}" />
+            <Button x:Name="DeletePhotoButton" Text="Удалить фото" Command="{Binding DeletePhoto_Command}" />
+            <Button x:Name="FileAppealButton" Text="Подать обращение" Clicked="FileAppealButton_Clicked" IsEnabled="False">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" 
+                             Binding="{Binding IsPhotoAdd}"
+                             Value="True">
+                        <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

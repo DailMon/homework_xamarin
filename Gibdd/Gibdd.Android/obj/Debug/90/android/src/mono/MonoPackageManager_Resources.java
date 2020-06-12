@@ -6,7 +6,6 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Gibdd.dll",
 		"Plugin.Media.dll",
-		"SkiaSharp.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

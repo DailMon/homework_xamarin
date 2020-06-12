@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Gibdd.FileAppeal">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            </Grid>
+            <TableView Grid.Row="0" Intent="Data" HasUnevenRows="true">
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection>
+                            <TextCell Text="Лицо" Detail="{Binding SelectedProfile.TypeProfile}" />
+                            <TextCell Text="Фамилия" Detail="{Binding SelectedProfile.SecondName}" />
+                            <TextCell Text="Имя" Detail="{Binding SelectedProfile.FirstName}" />
+                            <TextCell Text="Отчество" Detail="{Binding SelectedProfile.MidleName}" />
+                            <TextCell Text="Электронная почта" Detail="{Binding SelectedProfile.Email}" />
+                            <TextCell Text="Мобильный телефон" Detail="{Binding SelectedProfile.MobilePhone}" />
+                            <TextCell Text="Регион адресации" Detail="{Binding SelectedProfile.Region}" />
+                            <TextCell Text="Подразделение адресации" Detail="{Binding SelectedProfile.Subdivision}" />
+                            <TextCell Text="Регион происшествия" Detail="{Binding SelectedProfile.RegionIncedent}" />
+                            <TextCell Text="Наименование организации" Detail="{Binding SelectedProfile.NameCompany}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Дополнительная информация" Detail="{Binding SelectedProfile.AddInfomation}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Исходящий номер" Detail="{Binding SelectedProfile.OutgoingNumber}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Дата регистрации документа в организации" Detail="{Binding SelectedProfile.DateRegistration}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Номер заказного письма" Detail="{Binding SelectedProfile.NumberLetter}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Текст обращения" Detail="{Binding CurrentTextAppeal}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>                            
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>                
+            </TableView>
+            <CarouselView Grid.Row="1" x:Name="CarouselView" 
+                          ItemsSource="{Binding ImageItems}" 
+                          ItemsUpdatingScrollMode="KeepLastItemInView" 
+                          CurrentItem="{Binding SelectedPhoto}"
+                          HeightRequest="80">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout HeightRequest="80">
+                            <Image Source="{Binding PhotoSource}" WidthRequest="75" HeightRequest="75" Aspect="AspectFit">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Image_Tapped" Command="{Binding ImageTapped_Command}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       SnapPointsType="MandatorySingle"
+                                       SnapPointsAlignment="Start"/>
+                </CarouselView.ItemsLayout>
+            </CarouselView>
+            <Button x:Name="FileButton" Text="Подать" Clicked="FileButton_Clicked" Command="{Binding FileButton_Command}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

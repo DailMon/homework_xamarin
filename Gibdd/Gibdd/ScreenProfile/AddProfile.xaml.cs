@@ -28,7 +28,7 @@ namespace Gibdd
 
         async void SaveProfile_Clicked(object sender, EventArgs e)
         {            
-            await Navigation.PopAsync();        
+            await Navigation.PopModalAsync();        
            
         }       
 
@@ -53,23 +53,5 @@ namespace Gibdd
                 EntryNumberLetter.Placeholder = "";
             }
         }
-    }
-
-    public class MultiTriggerConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType,
-            object parameter, CultureInfo culture)
-        {            
-            if ((int)value > 0)
-                return true;            
-            else
-                return false;            
-        }
-
-        public object ConvertBack(object value, Type targetType,
-            object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
-        }
-    }
+    }    
 }

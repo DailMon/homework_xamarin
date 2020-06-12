@@ -7,8 +7,7 @@
              x:Class="Gibdd.ChooseProfile">
 
     <StackLayout Spacing="10" Padding="10" >
-        <ListView x:Name="ProfilesListView"
-        ItemsSource="{Binding Items}"
+        <ListView x:Name="ProfilesListView"       
         CachingStrategy="RecycleElement"
         SelectedItem="{Binding SelectedProfile}">
             <!--Built in Cells-->

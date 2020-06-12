@@ -1,4 +1,4 @@
-﻿using Gibdd.ScreenProfile;
+﻿using Gibdd;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +17,12 @@ namespace Gibdd
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new ProfilesViewModel();            
+            this.BindingContext = new GibddViewModel();            
         }
 
         private void ChooseProfile_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChooseProfile
+            Navigation.PushModalAsync(new ChooseProfile
                 {
                 BindingContext = this.BindingContext
             });

@@ -17,11 +17,11 @@ namespace Gibdd
         public AddPhoto()
         {
             InitializeComponent();            
-        }        
+        }      
 
-        private async void Image_Tapped(object sender, ItemTappedEventArgs e)
+        private async void FileAppealButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PhotoFullScreen
+            await Navigation.PushAsync(new FileAppeal
             {
                 BindingContext = this.BindingContext
             });
