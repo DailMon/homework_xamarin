@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 
 namespace Gibdd
 {
+   
     public partial class App : Application
     {
         static ProfileDatabase database;
@@ -24,7 +24,6 @@ namespace Gibdd
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainPage());
         }
 

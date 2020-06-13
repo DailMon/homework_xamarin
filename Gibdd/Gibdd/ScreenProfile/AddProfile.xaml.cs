@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,19 +9,11 @@ namespace Gibdd
     {        
         public AddProfile()
         {
-            InitializeComponent();            
-
-            EntryNameCompany.Placeholder = "";
-            EntryAddInfomation.Placeholder = "";
-            EntryOutgoingNumber.Placeholder = "";
-            LabelDate.Text = "";
-            EntryNumberLetter.Placeholder = "";
-
+            InitializeComponent();          
         }
-
         async void SaveProfile_Clicked(object sender, EventArgs e)
         {            
-            await Navigation.PopModalAsync();        
+            await Navigation.PopAsync();      
            
         }       
 
@@ -36,21 +21,10 @@ namespace Gibdd
         {
            if (SwitchTypeProfile.IsToggled)
             {                
-                TypeProfile.Text = "Организация";                
-                EntryNameCompany.Placeholder = "Наименование организации";
-                EntryAddInfomation.Placeholder = "Дополнительная информация";
-                EntryOutgoingNumber.Placeholder = "Исходящий номер";
-                LabelDate.Text = "Дата регистрации документа в организации";
-                EntryNumberLetter.Placeholder = "Номер заказного письма";
-
+                TypeProfile.Text = "Организация";               
             } else
             {
-                TypeProfile.Text = "Гражданин";
-                EntryNameCompany.Placeholder = "";
-                EntryAddInfomation.Placeholder = "";
-                EntryOutgoingNumber.Placeholder = "";
-                LabelDate.Text = "";
-                EntryNumberLetter.Placeholder = "";
+                TypeProfile.Text = "Гражданин";                
             }
         }
     }    

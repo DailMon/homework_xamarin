@@ -120,6 +120,7 @@ namespace Gibdd
                 NotyfyProrertyChanged(nameof(CanSave));
             }
         }
+
         private void ValidateToSave()
         {
             if (Name.Length > 0
@@ -176,8 +177,7 @@ namespace Gibdd
                     }
                 }
             }
-        }     
-
+        }    
 
         public ICommand ProfileChoosed_Command { get; set; }
         public ICommand SaveProfile_Command { get; set; }
@@ -202,12 +202,14 @@ namespace Gibdd
             FileButton_Command = new Command(OnFileButton);
         }        
 
+        public Profile ChoosedProfile { get; set; }
         private void OnChooseProfileClick()
         {
             if (SelectedProfile != null)
             {
                 NameProfile = "Текущий профиль: " + SelectedProfile.Name;
-                IsChoosed = true;                
+                IsChoosed = true;
+                ChoosedProfile = SelectedProfile;
                 NotyfyProrertyChanged(nameof(NameProfile));
             }
         }    
@@ -229,6 +231,7 @@ namespace Gibdd
             {
                 SelectedProfile.TypeProfile = "Гражданин";
             }
+            ChoosedProfile = SelectedProfile;
             await App.Database.SaveProfileAsync(SelectedProfile);            
             NotyfyProrertyChanged(nameof(SelectedProfile));
         }

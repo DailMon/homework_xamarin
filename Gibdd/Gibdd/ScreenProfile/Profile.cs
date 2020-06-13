@@ -20,13 +20,14 @@ namespace Gibdd
         public string RegionOfIncedent { get; set; }
 
         public bool IsCompany { get; set; }
+        public string TypeProfile { get; set; } = "Гражданин";
+
         // from company
         public string NameCompany { get; set; }
         public string AddInfomation { get; set; }
         public string OutgoingNumber { get; set; }
-        public DateTime DateRegistration { get { return DateTime.Now; } set { } }
-        public string NumberLetter { get; set; }
-        public string TypeProfile { get; set; } = "Гражданин";
+        public DateTime DateRegistration { get; set; } = DateTime.Now;
+        public string NumberLetter { get; set; }       
 
         public override string ToString()
         {

@@ -4,24 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.ChooseProfile">
+             x:Class="Gibdd.ChooseProfile"
+             Title="Выбор профиля" >
 
     <StackLayout Spacing="10" Padding="10" >
         <ListView x:Name="ProfilesListView"       
-        CachingStrategy="RecycleElement"
-        SelectedItem="{Binding SelectedProfile}">
-            <!--Built in Cells-->
+                  CachingStrategy="RecycleElement"
+                  SelectedItem="{Binding SelectedProfile}">            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="ChooseProfile_Button" Text="Выбрать" Clicked="ChooseProfile_Clicked" Command="{Binding ProfileChoosed_Command}"/>
+        <Button x:Name="ChooseProfile_Button" Text="Выбрать" Clicked="ChooseProfile_Clicked" Command="{Binding ProfileChoosed_Command}" />
         <Button x:Name="AddProfile_Button" Text="Добавить" Clicked="AddProfile_Clicked" />
         <Button x:Name="RemoveProfile_Button" Text="Удалить" Clicked="RemoveProfile_Clicked" />
         <Button x:Name="EditProfile_Button" Text="Редактировать" Clicked="EditProfile_Clicked" />
     </StackLayout>
- 
-
 </ContentPage>

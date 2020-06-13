@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.FileAppeal">
+             x:Class="Gibdd.FileAppeal"
+             Title="Подача заявления">
     <ContentPage.Content>
         <StackLayout>
             <Grid>
@@ -17,29 +18,30 @@
                 <TableView.Root>
                     <TableRoot>
                         <TableSection>
-                            <TextCell Text="Лицо" Detail="{Binding SelectedProfile.TypeProfile}" />
-                            <TextCell Text="Фамилия" Detail="{Binding SelectedProfile.SecondName}" />
-                            <TextCell Text="Имя" Detail="{Binding SelectedProfile.FirstName}" />
-                            <TextCell Text="Отчество" Detail="{Binding SelectedProfile.MidleName}" />
-                            <TextCell Text="Электронная почта" Detail="{Binding SelectedProfile.Email}" />
-                            <TextCell Text="Мобильный телефон" Detail="{Binding SelectedProfile.MobilePhone}" />
-                            <TextCell Text="Регион адресации" Detail="{Binding SelectedProfile.Region}" />
-                            <TextCell Text="Подразделение адресации" Detail="{Binding SelectedProfile.Subdivision}" />
-                            <TextCell Text="Регион происшествия" Detail="{Binding SelectedProfile.RegionIncedent}" />
-                            <TextCell Text="Наименование организации" Detail="{Binding SelectedProfile.NameCompany}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
-                            <TextCell Text="Дополнительная информация" Detail="{Binding SelectedProfile.AddInfomation}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
-                            <TextCell Text="Исходящий номер" Detail="{Binding SelectedProfile.OutgoingNumber}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
+                            <TextCell Text="Лицо" Detail="{Binding ChoosedProfile.TypeProfile}" />
+                            <TextCell Text="Фамилия" Detail="{Binding ChoosedProfile.SecondName}" />
+                            <TextCell Text="Имя" Detail="{Binding ChoosedProfile.FirstName}" />
+                            <TextCell Text="Отчество" Detail="{Binding ChoosedProfile.MidleName}" />
+                            <TextCell Text="Электронная почта" Detail="{Binding ChoosedProfile.Email}" />
+                            <TextCell Text="Мобильный телефон" Detail="{Binding ChoosedProfile.MobilePhone}" />
+                            <TextCell Text="Регион адресации" Detail="{Binding ChoosedProfile.Region}" />
+                            <TextCell Text="Подразделение адресации" Detail="{Binding ChoosedProfile.Subdivision}" />
+                            <TextCell Text="Регион происшествия" Detail="{Binding ChoosedProfile.RegionOfIncedent}" />
+                            <TextCell Text="Наименование организации" Detail="{Binding ChoosedProfile.NameCompany}" IsEnabled="{Binding ChoosedProfile.IsCompany}"/>
+                            <TextCell Text="Дополнительная информация" Detail="{Binding ChoosedProfile.AddInfomation}" IsEnabled="{Binding ChoosedProfile.IsCompany}"/>
+                            <TextCell Text="Исходящий номер" Detail="{Binding ChoosedProfile.OutgoingNumber}" IsEnabled="{Binding ChoosedProfile.IsCompany}"/>
                             <TextCell Text="Дата регистрации документа в организации" Detail="{Binding SelectedProfile.DateRegistration}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
-                            <TextCell Text="Номер заказного письма" Detail="{Binding SelectedProfile.NumberLetter}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>
-                            <TextCell Text="Текст обращения" Detail="{Binding CurrentTextAppeal}" IsEnabled="{Binding SelectedProfile.IsCompany}"/>                            
+                            <TextCell Text="Номер заказного письма" Detail="{Binding ChoosedProfile.NumberLetter}" IsEnabled="{Binding ChoosedProfile.IsCompany}"/>
+                            <TextCell Text="Текст обращения" Detail="{Binding CurrentTextAppeal}" />                            
                         </TableSection>
                     </TableRoot>
                 </TableView.Root>                
             </TableView>
             <CarouselView Grid.Row="1" x:Name="CarouselView" 
                           ItemsSource="{Binding ImageItems}" 
-                          ItemsUpdatingScrollMode="KeepLastItemInView" 
                           CurrentItem="{Binding SelectedPhoto}"
+                          ItemsUpdatingScrollMode="KeepLastItemInView" 
+                          HorizontalScrollBarVisibility ="Always"                          
                           HeightRequest="80">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>

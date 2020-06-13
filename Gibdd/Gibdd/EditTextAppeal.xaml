@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.EditTextAppeal">
+             x:Class="Gibdd.EditTextAppeal"
+             Title="Текст обращения">
+    
     <StackLayout Spacing="10" Padding="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,20 +18,18 @@
             <Editor x:Name="EditorTextAppeal" Text="{Binding CurrentTextAppeal}" AutoSize="TextChanges" />
         </ScrollView>
         
-        <ListView Grid.Row="1" x:Name="TextAppealListView"
-            ItemsSource="{Binding Items}"
-            CachingStrategy="RecycleElement"
-            SelectedItem="{Binding SelectedTextAppeal}"
-            >            
+        <ListView Grid.Row="1" x:Name="TextAppealListView"                  
+                  CachingStrategy="RecycleElement"
+                  SelectedItem="{Binding SelectedTextAppeal}" >            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding .}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="AddPhoto" 
+        <Button x:Name="AddPhotoButton" 
                 Text="Добавить фотографию"
-                Clicked="AddPhoto_Clicked"
+                Clicked="AddPhotoButton_Clicked"
                 IsEnabled="False">
             <Button.Triggers>
                 <DataTrigger TargetType="Button" 

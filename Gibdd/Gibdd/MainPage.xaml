@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.MainPage">
+             x:Class="Gibdd.MainPage"
+             Title="Заявление в ГИБДД"
+             >
 
-    <StackLayout Spacing="10" Padding="10">
-        <!-- Place new controls here -->     
-        
+    <StackLayout Spacing="10" Padding="10">            
         <Label
             Text="{Binding NameProfile}" 
            HorizontalOptions="Center"

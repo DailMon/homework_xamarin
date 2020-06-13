@@ -19,23 +19,19 @@ namespace Gibdd
         }
 
         public Task<List<Profile>> GetAllProfilesAsync()
-        {
-            _database.Table<TextAppeal>().OrderBy(item => item.ID);
-            return _database.Table<Profile>().ToListAsync();
+        {           
+            return _database.Table<Profile>().OrderByDescending(x => x.ID).ToListAsync();
         }
 
         public Task<List<TextAppeal>> GetAllTextAppealsAsync()
         {
-            _database.Table<TextAppeal>().OrderBy(item => item.ID);
-            return _database.Table<TextAppeal>().ToListAsync();
-        }
-
-        public Task<Profile> GetProfileAsync(int id)
-        {
-            return _database.Table<Profile>()
-                            .Where(i => i.ID == id)
-                            .FirstOrDefaultAsync();
-        }
+           var allText = _database.Table<TextAppeal>().OrderByDescending(x => x.ID).ToListAsync();           
+           if (allText.Result.Count > 10)
+            {
+                DeleteTextAppealAsync(allText.Result[0]);
+            }
+            return allText;
+        }        
 
         public Task<int> SaveProfileAsync(Profile profile)
         {            

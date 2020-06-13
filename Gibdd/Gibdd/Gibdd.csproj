@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="ListViewPage1.xaml.cs" />
     <Compile Remove="ModelProfiles.cs" />
     <Compile Remove="View1.xaml.cs" />
@@ -19,6 +25,16 @@
   <ItemGroup>
     <EmbeddedResource Remove="ListViewPage1.xaml" />
     <EmbeddedResource Remove="View1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netstandard2.0\Gibdd.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netstandard2.0\Gibdd.dll" />
+    <None Include="bin\Debug\netstandard2.0\Gibdd.pdb" />
+    <None Include="bin\Debug\netstandard2.0\ref\Gibdd.dll" />
   </ItemGroup>
 
   <ItemGroup>

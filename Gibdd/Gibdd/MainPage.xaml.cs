@@ -1,16 +1,9 @@
-﻿using Gibdd;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Gibdd
-{
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
+{   
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -22,8 +15,8 @@ namespace Gibdd
 
         private void ChooseProfile_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ChooseProfile
-                {
+            Navigation.PushAsync(new ChooseProfile 
+            {
                 BindingContext = this.BindingContext
             });
         }

@@ -12,6 +12,5 @@ namespace Gibdd
         Task PickPhoto();
         void DeletePhoto(MyImage SelectedPhoto);
         bool IsPhotoAdd { get; set; }
-
     }
 }

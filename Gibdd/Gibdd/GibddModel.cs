@@ -18,8 +18,7 @@ namespace Gibdd
             set { } 
         }
 
-        bool isPhotoAdd = false;
-        public bool IsPhotoAdd { get { return isPhotoAdd; } set { isPhotoAdd = value; } }
+        public bool IsPhotoAdd { get; set; } = false;
 
         public async Task TakePhoto()
         {
@@ -61,7 +60,7 @@ namespace Gibdd
                 curImage.NamePhoto = "название отсутствует";
             }
             imageItems.Add(curImage);
-            isPhotoAdd = true;            
+            IsPhotoAdd = true;            
         }
 
         public async Task PickPhoto()
@@ -90,21 +89,22 @@ namespace Gibdd
                         curImage.NamePhoto = "название отсутствует";
                     }
                     imageItems.Add(curImage);                    
-                    isPhotoAdd = true;                 
+                    IsPhotoAdd = true;                 
 
                 }
             }
         }       
+
         public void DeletePhoto(MyImage SelectedPhoto)
         {
             imageItems.Remove(SelectedPhoto);
             if (imageItems.Count > 0)
             {
-                isPhotoAdd = true;
+                IsPhotoAdd = true;
             }
             else
             {
-                isPhotoAdd = false;
+                IsPhotoAdd = false;
             }
         }
     }

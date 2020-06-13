@@ -4,16 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.AddPhoto">
+             x:Class="Gibdd.AddPhoto"
+             Title="Добавление фотографий">
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="10">                        
             <ListView x:Name="ImageListView"
                     ItemsSource="{Binding ImageItems}"
                     CachingStrategy="RecycleElement"
                     SelectedItem="{Binding SelectedPhoto}"                      
-                    HasUnevenRows="true"
-                    
-                    >
+                    HasUnevenRows="true" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

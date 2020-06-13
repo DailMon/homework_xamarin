@@ -4,8 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Gibdd.AddProfile"             
-             >    
+             x:Class="Gibdd.AddProfile"
+             Title="Сохранение профиля"
+             >
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="10">
             <Grid>
@@ -34,70 +35,70 @@
                         <TableSection >
                             <EntryCell                                
                                 x:Name="EntryName"                                                               
-                                Text="{Binding Name}"
-                                Placeholder="Название профиля"
+                                Text="{Binding Name}"                                
+                                Label="Название профиля"
                                 />
                             <EntryCell
                                 x:Name="EntrySecondName"
-                                Text="{Binding SecondName}"
-                                Placeholder="Фамилия"
+                                Text="{Binding SecondName}"                                
+                                Label="Фамилия"
                                 />
                             <EntryCell
                                 x:Name="EntryFirstName"
-                                Text="{Binding FirstName}"
-                                Placeholder="Имя"                                 
+                                Text="{Binding FirstName}"                                
+                                Label="Имя"
                                 />
                             <EntryCell
                                 x:Name="EntryMidleName"
-                                Text="{Binding SelectedProfile.MidleName}"
-                                Placeholder="Отчество"
+                                Text="{Binding SelectedProfile.MidleName}"                                
+                                Label="Отчество"
                                 />
                             <EntryCell 
                                 x:Name="EntryEmail"
-                                Text="{Binding Email}"
-                                Placeholder="Электронная почта"
+                                Text="{Binding Email}"                               
                                 Keyboard="Email"
+                                Label="Электронная почта"
                                 />
                             <EntryCell 
                                 x:Name="EntryMobilePhone"
-                                Text="{Binding SelectedProfile.MobilePhone}"
-                                Placeholder="Мобильный телефон"
-                                Keyboard="Telephone"
+                                Text="{Binding SelectedProfile.MobilePhone}"                                
+                                Keyboard="Telephone" 
+                                Label="Мобильный телефон"
                                 />
                             <EntryCell 
                                 x:Name="EntryRegion"
-                                Text="{Binding Region}"
-                                Placeholder="Регион адресации"                 
+                                Text="{Binding Region}"                                
+                                Label="Регион адресации"
                                 />
                             <EntryCell 
                                 x:Name="EntrySubdivision"
-                                Text="{Binding Subdivision}"
-                                Placeholder="Подразделение адресации"                 
+                                Text="{Binding Subdivision}"                                
+                                Label="Подразделение адресации"
                                 />
                             <EntryCell 
                                 x:Name="EntryRegionOfIncedent"
-                                Text="{Binding SelectedProfile.RegionOfIncedent}"
-                                Placeholder="Регион происшествия"                 
+                                Text="{Binding SelectedProfile.RegionOfIncedent}"                                
+                                Label="Регион происшествия"
                                 />
 
                             <EntryCell
                                 x:Name="EntryNameCompany"
-                                Text="{Binding SelectedProfile.NameCompany}"
-                                Placeholder="Наименование организации"                                
+                                Text="{Binding SelectedProfile.NameCompany}"                                                              
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                Label="Наименование организации"
                                 />
                             <EntryCell
                                 x:Name="EntryAddInfomation"
-                                Text="{Binding SelectedProfile.AddInfomation}"
-                                Placeholder="Дополнительная информация"                                
+                                Text="{Binding SelectedProfile.AddInfomation}"                                                                
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
+                                Label="Дополнительная информация"
                                 />
                             <EntryCell
                                 x:Name="EntryOutgoingNumber"
-                                Text="{Binding SelectedProfile.OutgoingNumber}"
-                                Placeholder="Исходящий номер"  
+                                Text="{Binding SelectedProfile.OutgoingNumber}"                                 
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
                                 Keyboard="Numeric"
+                                Label="Исходящий номер"
                                 />
                             <ViewCell>
                                 <StackLayout Padding="12">
@@ -119,10 +120,10 @@
                             </ViewCell>
                             <EntryCell 
                                 x:Name="EntryNumberLetter"
-                                Text="{Binding SelectedProfile.NumberLetter}"
-                                Placeholder="Номер заказного письма"  
+                                Text="{Binding SelectedProfile.NumberLetter}"                                  
                                 IsEnabled="{Binding Source={x:Reference SwitchTypeProfile}, Path=IsToggled}"
                                 Keyboard="Numeric"
+                                Label="Номер заказного письма"                                
                                 />                            
                         </TableSection>
                     </TableRoot>

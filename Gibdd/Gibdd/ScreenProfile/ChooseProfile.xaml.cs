@@ -1,10 +1,4 @@
-﻿using Gibdd;
-using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,16 +7,14 @@ namespace Gibdd
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChooseProfile : ContentPage
     {
-
         public ChooseProfile()
         {
-            InitializeComponent();           
-            
+            InitializeComponent();        
         }
+
         protected override async void OnAppearing()
         {
-            base.OnAppearing(); 
-            
+            base.OnAppearing();             
             ProfilesListView.ItemsSource = await App.Database.GetAllProfilesAsync();
             ProfilesListView.SelectedItem = null;
         }       
@@ -35,7 +27,7 @@ namespace Gibdd
             Profile profile = ProfilesListView.SelectedItem as Profile;
             if (profile != null)
             {
-                await Navigation.PopModalAsync();                
+                await Navigation.PopAsync();                
             }            
             AddProfile_Button.IsEnabled = true;
             RemoveProfile_Button.IsEnabled = true;
@@ -49,7 +41,7 @@ namespace Gibdd
             RemoveProfile_Button.IsEnabled = false;
             EditProfile_Button.IsEnabled = false;
             ProfilesListView.SelectedItem = new Profile();
-            await Navigation.PushModalAsync(new AddProfile
+            await Navigation.PushAsync(new AddProfile
             {
                 BindingContext = this.BindingContext
             });
@@ -84,7 +76,7 @@ namespace Gibdd
             Profile profile = ProfilesListView.SelectedItem as Profile;
             if (profile != null)
             {
-                await Navigation.PushModalAsync(new AddProfile
+                await Navigation.PushAsync(new AddProfile
                 {
                     BindingContext = this.BindingContext
                 });                

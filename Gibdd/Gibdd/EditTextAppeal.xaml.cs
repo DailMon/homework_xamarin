@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,7 +23,7 @@ namespace Gibdd
             TextAppealListView.SelectedItem = null;
         }        
 
-        private async void AddPhoto_Clicked(object sender, EventArgs e)
+        private async void AddPhotoButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddPhoto
             {
