@@ -36,17 +36,17 @@
                             <EntryCell                                
                                 x:Name="EntryName"                                                               
                                 Text="{Binding Name}"                                
-                                Label="Название профиля"
+                                Label="Название профиля:*"
                                 />
                             <EntryCell
                                 x:Name="EntrySecondName"
                                 Text="{Binding SecondName}"                                
-                                Label="Фамилия"
+                                Label="Фамилия:*"
                                 />
                             <EntryCell
                                 x:Name="EntryFirstName"
                                 Text="{Binding FirstName}"                                
-                                Label="Имя"
+                                Label="Имя:*"
                                 />
                             <EntryCell
                                 x:Name="EntryMidleName"
@@ -57,7 +57,7 @@
                                 x:Name="EntryEmail"
                                 Text="{Binding Email}"                               
                                 Keyboard="Email"
-                                Label="Электронная почта"
+                                Label="Электронная почта:*"
                                 />
                             <EntryCell 
                                 x:Name="EntryMobilePhone"
@@ -68,12 +68,12 @@
                             <EntryCell 
                                 x:Name="EntryRegion"
                                 Text="{Binding Region}"                                
-                                Label="Регион адресации"
+                                Label="Регион адресации:*"
                                 />
                             <EntryCell 
                                 x:Name="EntrySubdivision"
                                 Text="{Binding Subdivision}"                                
-                                Label="Подразделение адресации"
+                                Label="Подразделение адресации:*"
                                 />
                             <EntryCell 
                                 x:Name="EntryRegionOfIncedent"
